@@ -17,7 +17,11 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'book_id' => null,
+            'review' => fake()->paragraph,
+            'rating' => fake() ->numberBetween(1,5),
+            'created_at' => fake()->dateTimeBetween('-2 years'),
+            'updated_at' => fake()->dateTimeBetween('created_at','now')
         ];
     }
 }
