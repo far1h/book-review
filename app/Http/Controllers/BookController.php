@@ -26,7 +26,7 @@ class BookController extends Controller
             'highest_rated_last_month' => $books->highestRatedLastMonth(),
             'highest_rated_last_6months' => $books->highestRatedLast6Months(),
             default => $books->latest()->withAvgRating()->withReviewsCount( )
-        };
+        }; 
 
         $cacheKey = 'books' . $filter . ':' . $title;
         $books = cache()->remember($cacheKey, 3600, fn() => $books->get());
